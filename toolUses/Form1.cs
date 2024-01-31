@@ -53,9 +53,9 @@ namespace toolUses
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            label6.Text;
-            label7.Text;
-            label8.Text;
+            /*label6.Text = "MS";
+            label7.Text = "H";
+            label8.Text = "Software Engineer";*/ 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
