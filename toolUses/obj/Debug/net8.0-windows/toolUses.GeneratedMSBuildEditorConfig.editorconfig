@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = toolUses
-build_property.ProjectDir = C:\Users\meddi\Codes\C#\toolUses\
+build_property.ProjectDir = C:\Users\meddi\Source\Repos\SIYAKS-ARES\CSharp_Lessons\toolUses\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

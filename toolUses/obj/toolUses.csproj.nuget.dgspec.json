@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\meddi\\Codes\\C#\\toolUses\\toolUses.csproj": {}
+    "C:\\Users\\meddi\\Source\\Repos\\SIYAKS-ARES\\CSharp_Lessons\\toolUses\\toolUses.csproj": {}
   },
   "projects": {
-    "C:\\Users\\meddi\\Codes\\C#\\toolUses\\toolUses.csproj": {
+    "C:\\Users\\meddi\\Source\\Repos\\SIYAKS-ARES\\CSharp_Lessons\\toolUses\\toolUses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\meddi\\Codes\\C#\\toolUses\\toolUses.csproj",
+        "projectUniqueName": "C:\\Users\\meddi\\Source\\Repos\\SIYAKS-ARES\\CSharp_Lessons\\toolUses\\toolUses.csproj",
         "projectName": "toolUses",
-        "projectPath": "C:\\Users\\meddi\\Codes\\C#\\toolUses\\toolUses.csproj",
+        "projectPath": "C:\\Users\\meddi\\Source\\Repos\\SIYAKS-ARES\\CSharp_Lessons\\toolUses\\toolUses.csproj",
         "packagesPath": "C:\\Users\\meddi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\meddi\\Codes\\C#\\toolUses\\obj\\",
+        "outputPath": "C:\\Users\\meddi\\Source\\Repos\\SIYAKS-ARES\\CSharp_Lessons\\toolUses\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
