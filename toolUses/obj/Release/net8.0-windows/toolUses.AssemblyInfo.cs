@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("toolUses")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d97d2938e7463757f217e926951debbc2b05038")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64cd82e86da488369b5968c2994649294ddb1c47")]
 [assembly: System.Reflection.AssemblyProductAttribute("toolUses")]
 [assembly: System.Reflection.AssemblyTitleAttribute("toolUses")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
