@@ -196,7 +196,7 @@ while (amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
     }
 
     Console.Write("\nGuess a letter: ");
-    char letterGuessed = Console.ReadLine()[0];
+    char letterGuessed = Char.ToUpper(Console.ReadLine()[0]);
 
     if (currentLettersGuessed.Contains(letterGuessed))
     {
@@ -235,5 +235,13 @@ while (amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
         }
     }
 }
+if (currentLettersRight == lengthOfWordToGuess)
+{
+    Console.WriteLine("\r\nTebrikler! Şehri doğru bildiniz: " + randomWord);
+}
+else
+{
+    Console.WriteLine("\r\nÜzgünüz, adam asıldı! Şehir: " + randomWord);
+}
+
 Console.WriteLine("\r\nGame is over! Thank you for playing!");
-Console.WriteLine("The City was:" + randomWord);
