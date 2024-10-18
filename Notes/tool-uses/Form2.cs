@@ -10,41 +10,41 @@ using System.Windows.Forms;
 
 namespace tool_uses
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello World");
+            comboBox1.Items.Add("Van");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label2.Text = "SIYAKSARES";
+            comboBox1.Items.Add(textBox1.Text);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            label6.Text = "MSH";
-            label7.Text = "SIYAKSARES";
-            label8.Text = "Software Engineer";
+            listBox1.Items.Add(textBox2.Text);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            //textBox1.Text = label4.Text;
-            label9.Text = textBox1.Text;
-            // Nereye yazdırılacaksa o solda, nereden yazdırılacaksa sola yazılır.
-             
+
         }
     }
 }
