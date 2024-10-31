@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media; // Ses eklemek için gerekli kütüphane
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,95 +13,127 @@ namespace Flappy_Bird_Windows_Form
 {
     public partial class Form1 : Form
     {
+        // Değişkenler burada başlar
+        int boruHizi = 8; // Varsayılan boru hızı
+        int yercekimi = 15; // Varsayılan yerçekimi
+        int puan = 0; // Varsayılan puan
+        bool oyunBasladi = false; // Oyunun başlangıç durumu kontrolü
 
-        // coded for MOO ICT Flappy Bird Tutorial
-
-        // Variables start here
-
-        int pipeSpeed = 8; // default pipe speed defined with an integer
-        int gravity = 15; // default gravity speed defined with an integer
-        int score = 0; // default score integer set to 0
-        // variable ends
+        SoundPlayer kanatSesi = new SoundPlayer("flap.wav"); // Kanat sesi
+        SoundPlayer carpismaSesi = new SoundPlayer("hit.wav"); // Çarpma sesi
+        SoundPlayer puanSesi = new SoundPlayer("score.wav"); // Puan alma sesi
+        SoundPlayer oyunBittiSesi = new SoundPlayer("gameover.wav"); // Oyun sonu sesi
 
         public Form1()
         {
             InitializeComponent();
+            oyunZamani.Stop(); // Oyun başlangıçta durdurulmuş olacak
+            BaslangicEkrani(); // Başlangıç ekranını göster
         }
 
-        private void gamekeyisdown(object sender, KeyEventArgs e)
+        private void tusBasildi(object sender, KeyEventArgs e)
         {
-            // this is the game key is down event thats linked to the main form
+            if (e.KeyCode == Keys.Space && oyunBasladi)
+            {
+                yercekimi = -15; // Kuş yukarı çıkmaya başlar
+                kanatSesi.Play(); // Kanat sesini çal
+            }
+
+            if (e.KeyCode == Keys.Space && !oyunBasladi)
+            {
+                OyunuBaslat(); // Oyun henüz başlamamışsa başlat
+            }
+        }
+
+        private void tusBirakildi(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Space)
             {
-                // if the space key is pressed then the gravity will be set to -15
-                gravity = -15;
+                yercekimi = 15; // Kuş tekrar aşağı düşer
             }
-
-
         }
 
-        private void gamekeyisup(object sender, KeyEventArgs e)
+        private void BaslangicEkrani()
         {
-            // this is the game key is up event thats linked to the main form
-
-            if (e.KeyCode == Keys.Space)
-            {
-                // if the space key is released then gravity is set back to 15
-                gravity = 15;
-            }
-
+            // Başlangıç ekranı ayarları
+            puanMetni.Text = "Başlamak için BOŞLUK tuşuna basın";
+            kus.Visible = false;
+            altBoru.Visible = false;
+            ustBoru.Visible = false;
+            zemin.Visible = false;
         }
 
-        private void endGame()
+        private void OyunuBaslat()
         {
-            // this is the game end function, this function will when the bird touches the ground or the pipes
-            gameTimer.Stop(); // stop the main timer
-            scoreText.Text += " Game over!!!"; // show the game over text on the score text, += is used to add the new string of text next to the score instead of overriding it
+            // Oyunu başlat
+            oyunBasladi = true;
+            puan = 0;
+            yercekimi = 15;
+            boruHizi = 8;
+            kus.Top = 228;
+            altBoru.Left = 800;
+            ustBoru.Left = 950;
+            oyunZamani.Start();
+            kus.Visible = true;
+            altBoru.Visible = true;
+            ustBoru.Visible = true;
+            zemin.Visible = true;
+            puanMetni.Text = "Puan: 0";
         }
 
-        private void gameTimerEvent(object sender, EventArgs e)
+        private void OyunuBitir()
         {
-            flappyBird.Top += gravity; // link the flappy bird picture box to the gravity, += means it will add the speed of gravity to the picture boxes top location so it will move down
-            pipeBottom.Left -= pipeSpeed; // link the bottom pipes left position to the pipe speed integer, it will reduce the pipe speed value from the left position of the pipe picture box so it will move left with each tick
-            pipeTop.Left -= pipeSpeed; // the same is happening with the top pipe, reduce the value of pipe speed integer from the left position of the pipe using the -= sign
-            scoreText.Text = "Score: " + score; // show the current score on the score text label
-
-            // below we are checking if any of the pipes have left the screen
-
-            if(pipeBottom.Left < -150)
-            {
-                // if the bottom pipes location is -150 then we will reset it back to 800 and add 1 to the score
-                pipeBottom.Left = 800;
-                score++;
-            }
-            if(pipeTop.Left < -180)
-            {
-                // if the top pipe location is -180 then we will reset the pipe back to the 950 and add 1 to the score
-                pipeTop.Left = 950;
-                score++;
-            }
-
-            // the if statement below is checking if the pipe hit the ground, pipes or if the player has left the screen from the top
-            // the two pipe symbols stand for OR inside of an if statement so we can have multiple conditions inside of this if statement because its all going to do the same thing
-            
-            if (flappyBird.Bounds.IntersectsWith(pipeBottom.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(pipeTop.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < -25
-                )
-            {
-                // if any of the conditions are met from above then we will run the end game function
-                endGame();
-            }
-
-
-            // if score is greater then 5 then we will increase the pipe speed to 15
-            if(score > 5)
-            {
-                pipeSpeed = 15;
-            }
-
+            oyunZamani.Stop(); // Zamanlayıcı durur
+            oyunBittiSesi.Play(); // Oyun sonu sesi çal
+            puanMetni.Text += " Oyun bitti!!! Yeniden başlatmak için R'ye bas"; // Oyun bitti mesajı
         }
 
+        private void oyunZamaniEtkinlik(object sender, EventArgs e)
+        {
+            kus.Top += yercekimi; // Kuşun hareketi
+            altBoru.Left -= boruHizi; // Boruların hareketi
+            ustBoru.Left -= boruHizi;
 
+            // Puanı göster
+            puanMetni.Text = "Puan: " + puan;
+
+            // Borular ekrandan çıkarsa
+            if (altBoru.Left < -150)
+            {
+                altBoru.Left = 800;
+                puan++;
+                puanSesi.Play(); // Puan sesi çal
+            }
+            if (ustBoru.Left < -180)
+            {
+                ustBoru.Left = 950;
+                puan++;
+                puanSesi.Play();
+            }
+
+            // Çarpışma kontrolü
+            if (kus.Bounds.IntersectsWith(altBoru.Bounds) ||
+                kus.Bounds.IntersectsWith(ustBoru.Bounds) ||
+                kus.Bounds.IntersectsWith(zemin.Bounds) ||
+                kus.Top < -25)
+            {
+                carpismaSesi.Play(); // Çarpma sesi çal
+                OyunuBitir(); // Oyunu bitir
+            }
+
+            // Puan 5'i geçerse boru hızı artar
+            if (puan > 5)
+            {
+                boruHizi = 15;
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'r' && !oyunBasladi)
+            {
+                OyunuBaslat(); // 'R' tuşuna basılırsa oyun yeniden başlar
+            }
+        }
     }
 }
