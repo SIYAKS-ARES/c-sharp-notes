@@ -1,10 +1,4 @@
-﻿Soruların her birine C# kodlarıyla çözüm sağlayalım. Her kod bloğunda algoritma adımlarını ve açıklamaları belirterek ilerleyeceğiz.
-
-1. Diziyi Sıralama ve İkili Arama ile Sayı Kontrolü
-
-Açıklama:
-
-	•	Kullanıcıdan bir dizi alıp sıralayacağız, ardından bir sayı alıp ikili arama algoritması ile dizide olup olmadığını kontrol edeceğiz.
+﻿// 1. Diziyi Sıralama ve İkili Arama ile Sayı Kontrolü
 
 using System;
 
@@ -49,11 +43,7 @@ class Program
     }
 }
 
-2. Pozitif Tam Sayıların Ortalaması ve Medyanı
-
-Açıklama:
-
-	•	Kullanıcı pozitif sayılar girecek, 0 girildiğinde ortalama ve medyan hesaplanacak.
+// 2. Pozitif Tam Sayıların Ortalaması ve Medyanı
 
 using System;
 using System.Collections.Generic;
@@ -91,11 +81,7 @@ class Program
     }
 }
 
-3. Ardışık Sayı Gruplarını Tespit Etme
-
-Açıklama:
-
-	•	Ardışık sayı gruplarını bulmak için kullanıcıdan bir dizi alıyoruz ve grupları listeliyoruz.
+// 3. Ardışık Sayı Gruplarını Tespit Etme
 
 using System;
 using System.Collections.Generic;
@@ -138,11 +124,7 @@ class Program
     }
 }
 
-4. İfade Çözümleyici (İşlem Önceliğine Göre)
-
-Açıklama:
-
-	•	Matematiksel ifadeleri çözümlemek için işlem önceliği kurallarına göre çözüm adımlarını ve sonucu göstereceğiz.
+// 4. İfade Çözümleyici (İşlem Önceliğine Göre)
 
 using System;
 using System.Data;
@@ -171,5 +153,3 @@ class Program
         Console.WriteLine($"Sonuç: {table.Compute(expression, string.Empty)}");
     }
 }
-
-Bu şekilde, her soru için ayrı bir C# kodu ve açıklamaları sunarak çözümü tamamlıyoruz. Devamındaki sorulara yönelik çözümleme veya özel bir sorunun detaylandırılması için yardım gerekirse ekleyebilirim.xw
