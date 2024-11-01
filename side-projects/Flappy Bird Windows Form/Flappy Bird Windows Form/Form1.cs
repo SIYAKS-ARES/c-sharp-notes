@@ -38,7 +38,7 @@ namespace Flappy_Bird_Windows_Form
             if (e.KeyCode == Keys.Space && oyunBasladi)
             {
                 yercekimi = -15; // Kuş yukarı çıkmaya başlar
-                kanatSesi.Play(); // Kanat sesini çal
+                //kanatSesi.Play(); // Kanat sesini çal
             }
 
             if (e.KeyCode == Keys.Space && !oyunBasladi)
@@ -119,7 +119,7 @@ namespace Flappy_Bird_Windows_Form
                 kus.Bounds.IntersectsWith(zemin.Bounds) ||
                 kus.Top < -25)
             {
-                carpismaSesi.Play(); // Çarpma sesi çal
+                //carpismaSesi.Play(); // Çarpma sesi çal
                 OyunuBitir(); // Oyunu bitir
             }
 
