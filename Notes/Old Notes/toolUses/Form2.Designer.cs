@@ -77,7 +77,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(165, 27);
             textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
+            //textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -127,7 +127,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(139, 27);
             textBox2.TabIndex = 8;
-            textBox2.TextChanged += textBox2_TextChanged;
+            //textBox2.TextChanged += textBox2_TextChanged;
             // 
             // button4
             // 
@@ -160,7 +160,7 @@
             Margin = new Padding(4);
             Name = "Form2";
             Text = "Tool Uses 2";
-            Load += Form2_Load;
+            //Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();
         }
