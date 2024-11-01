@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Media; // Ses eklemek için gerekli kütüphane
+// using System.Media; // Ses eklemek için gerekli kütüphane
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,11 +19,13 @@ namespace Flappy_Bird_Windows_Form
         int puan = 0; // Varsayılan puan
         bool oyunBasladi = false; // Oyunun başlangıç durumu kontrolü
 
+        /*
         SoundPlayer kanatSesi = new SoundPlayer("flap.wav"); // Kanat sesi
         SoundPlayer carpismaSesi = new SoundPlayer("hit.wav"); // Çarpma sesi
         SoundPlayer puanSesi = new SoundPlayer("score.wav"); // Puan alma sesi
         SoundPlayer oyunBittiSesi = new SoundPlayer("gameover.wav"); // Oyun sonu sesi
 
+         */
         public Form1()
         {
             InitializeComponent();
@@ -85,7 +87,7 @@ namespace Flappy_Bird_Windows_Form
         {
             oyunZamani.Stop(); // Zamanlayıcı durur
             //oyunBittiSesi.Play(); // Oyun sonu sesi çal
-            puanMetni.Text += " Oyun bitti!!! Yeniden başlatmak için R'ye bas"; // Oyun bitti mesajı
+            puanMetni.Text += " Oyun bitti!!! Yeniden başlatmak için r'ye bas"; // Oyun bitti mesajı
         }
 
         private void oyunZamaniEtkinlik(object sender, EventArgs e)
@@ -102,13 +104,13 @@ namespace Flappy_Bird_Windows_Form
             {
                 altBoru.Left = 800;
                 puan++;
-                puanSesi.Play(); // Puan sesi çal
+                // puanSesi.Play(); // Puan sesi çal
             }
             if (ustBoru.Left < -180)
             {
                 ustBoru.Left = 950;
                 puan++;
-                puanSesi.Play();
+                //puanSesi.Play();
             }
 
             // Çarpışma kontrolü
@@ -130,9 +132,9 @@ namespace Flappy_Bird_Windows_Form
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 'r' && !oyunBasladi)
+            if (e.KeyChar == 'a' && !oyunBasladi)
             {
-                OyunuBaslat(); // 'R' tuşuna basılırsa oyun yeniden başlar
+                OyunuBaslat(); // 'a' tuşuna basılırsa oyun yeniden başlar
             }
         }
     }
