@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-// using System.Media; // Ses eklemek için gerekli kütüphane
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,13 +18,6 @@ namespace Flappy_Bird_Windows_Form
         int puan = 0; // Varsayılan puan
         bool oyunBasladi = false; // Oyunun başlangıç durumu kontrolü
 
-        /*
-        SoundPlayer kanatSesi = new SoundPlayer("flap.wav"); // Kanat sesi
-        SoundPlayer carpismaSesi = new SoundPlayer("hit.wav"); // Çarpma sesi
-        SoundPlayer puanSesi = new SoundPlayer("score.wav"); // Puan alma sesi
-        SoundPlayer oyunBittiSesi = new SoundPlayer("gameover.wav"); // Oyun sonu sesi
-
-         */
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +30,6 @@ namespace Flappy_Bird_Windows_Form
             if (e.KeyCode == Keys.Space && oyunBasladi)
             {
                 yercekimi = -15; // Kuş yukarı çıkmaya başlar
-                //kanatSesi.Play(); // Kanat sesini çal
             }
 
             if (e.KeyCode == Keys.Space && !oyunBasladi)
@@ -86,7 +77,6 @@ namespace Flappy_Bird_Windows_Form
         private void OyunuBitir()
         {
             oyunZamani.Stop(); // Zamanlayıcı durur
-            //oyunBittiSesi.Play(); // Oyun sonu sesi çal
             puanMetni.Text += " Oyun bitti!!! Yeniden başlatmak için R'ye bas"; // Oyun bitti mesajı
         }
 
@@ -104,13 +94,11 @@ namespace Flappy_Bird_Windows_Form
             {
                 altBoru.Left = 800;
                 puan++;
-                // puanSesi.Play(); // Puan sesi çal
             }
             if (ustBoru.Left < -180)
             {
                 ustBoru.Left = 950;
                 puan++;
-                //puanSesi.Play();
             }
 
             // Çarpışma kontrolü
@@ -119,7 +107,6 @@ namespace Flappy_Bird_Windows_Form
                 kus.Bounds.IntersectsWith(zemin.Bounds) ||
                 kus.Top < -25)
             {
-                //carpismaSesi.Play(); // Çarpma sesi çal
                 OyunuBitir(); // Oyunu bitir
             }
 
@@ -132,9 +119,9 @@ namespace Flappy_Bird_Windows_Form
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 'a' && !oyunBasladi)
+            if (e.KeyChar == 'r' && !oyunBasladi)
             {
-                OyunuBaslat(); // 'a' tuşuna basılırsa oyun yeniden başlar
+                OyunuBaslat(); // 'R' tuşuna basılırsa oyun yeniden başlar
             }
         }
     }
