@@ -77,7 +77,7 @@ namespace Flappy_Bird_Windows_Form
         private void OyunuBitir()
         {
             oyunZamani.Stop(); // Zamanlayıcı durur
-            puanMetni.Text += " Oyun bitti!!! Yeniden başlatmak için R'ye bas"; // Oyun bitti mesajı
+            puanMetni.Text += " Oyun bitti!!!\nYeniden başlatmak için R'ye bas"; // Oyun bitti mesajı
         }
 
         private void oyunZamaniEtkinlik(object sender, EventArgs e)
